@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>WASM Dot Renderer</title>
+    <style>
+        #textInput {
+            width: 80%;
+            height: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        #svgContainer {
+            width: 1000px;
+            height: 1000px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import init, { example_graph, process } from "./pkg/wasm_dot_renderer.js";
+        init().then(() => {
+            function processInput() {
+                let text = document.getElementById("textInput").value;
+                const svgContainer = document.getElementById('svgContainer');
+                svgContainer.innerHTML = process(text);
+            }
+            function load_example_input() {
+                let text = example_graph();
+                let text_input = document.getElementById("textInput");
+                text_input.innerHTML = text;
+            }
+            document.getElementById("processButton").onclick = processInput;
+            document.getElementById("loadExampleText").onclick = load_example_input;
+        });
+    </script>
+
+    <label for="textInput">Enter your DOT file:</label>
+    <br>
+    <textarea id="textInput" rows="10" cols="30"></textarea>
+    <br>
+    <div>
+        <button id="processButton">Process</button>
+        <button id="loadExampleText">Load Example</button>
+    </div>
+
+    <div id="svgContainer"></div>
+
+</body>
+
+</html>
