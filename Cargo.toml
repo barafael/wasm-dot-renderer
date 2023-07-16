@@ -1,0 +1,11 @@
+[package]
+name = "wasm-dot-renderer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+layout-rs = "0.1.1"
+wasm-bindgen = "0.2.87"

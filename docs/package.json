@@ -1,0 +1,14 @@
+{
+  "name": "wasm-dot-renderer",
+  "version": "0.1.0",
+  "files": [
+    "wasm_dot_renderer_bg.wasm",
+    "wasm_dot_renderer.js",
+    "wasm_dot_renderer.d.ts"
+  ],
+  "module": "wasm_dot_renderer.js",
+  "types": "wasm_dot_renderer.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
